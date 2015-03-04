@@ -13,11 +13,20 @@
 }
 </style>
 
-<div class="container">
+<div>
   Enter text here: <input type="text" ng-model="someText" />
-
   <h1>{{someText}}</h1>
+
+  <p ng-hide="someText == 'hide'">
+    Type 'hide' to hide me
+  </p>
+
+  <p ng-class="someText">
+    Type 'fancy' to give me a class of fancy!
+  </p>
 </div>
+
+
 
 </body>
 </html>
