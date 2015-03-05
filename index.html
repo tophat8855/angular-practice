@@ -2,63 +2,78 @@
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
     <script src="first_controller.js"></script>
+    <script src="currencyController.js"></script>
+
   </head>
 <body>
 
-<style>
-.fancy {
-    color: green;
-    line-height: 50px;
-    font-size: 40px;
-    width: 200px;
-}
-</style>
+  <style>
+  .fancy {
+      color: green;
+      line-height: 50px;
+      font-size: 40px;
+      width: 200px;
+  }
 
-<div>
-  Enter text here: <input type="text" ng-model="someText" />
-  <h1>{{someText}}</h1>
+  .error {
+    color: red;
+    border: 2px solid red;
+  }
+  </style>
 
-  <p ng-hide="someText == 'hide'">
-    Type 'hide' to hide me
-  </p>
+  <div>
+    Enter text here: <input type="text" ng-model="someText" />
+    <h1>{{someText}}</h1>
 
-  <p ng-class="someText">
-    Type 'fancy' to give me a class of fancy!
-  </p>
-</div>
+    <p ng-hide="someText == 'hide'">
+      Type 'hide' to hide me
+    </p>
 
-<hr>
+    <p ng-class="someText">
+      Type 'fancy' to give me a class of fancy!
+    </p>
+  </div>
 
-<h4>Angular Expressions</h4>
-<ul>
-  <li> 1 + 3 is {{ 1 + 3 }} </li>
-  <li> My current balance: {{ 1112.12 | currency }}</li>
-  <li> foo == bar?: {{ "foo" === "bar" }}</li>
-  <li> foo == foo?: {{ "foo" == "foo" }}</li>
-  <li> LOWERCASE ME: {{ someText | lowercase }}</li>
-  <li> UPPERCASE ME: {{ someText | uppercase }}</li>
-  <li> Checked?: <input type=checkbox ng-checked=" 1 == 1 " /></li>
-</ul>
+  <hr>
 
-<input type="text" ng-model="query">
-
-<div ng-init="dogs=['Rusty', 'Momo', 'Wyatt', 'Ollie', 'Ringo', 'Loser']">
+  <h4>Angular Expressions</h4>
   <ul>
-    <span ng-repeat="dog in dogs | filter:query">
-      <li>{{ dog }}</li>
-    </span>
+    <li> 1 + 3 is {{ 1 + 3 }} </li>
+    <li> My current balance: {{ 1112.12 | currency }}</li>
+    <li> foo == bar?: {{ "foo" === "bar" }}</li>
+    <li> foo == foo?: {{ "foo" == "foo" }}</li>
+    <li> LOWERCASE ME: {{ someText | lowercase }}</li>
+    <li> UPPERCASE ME: {{ someText | uppercase }}</li>
+    <li> Checked?: <input type=checkbox ng-checked=" 1 == 1 " /></li>
   </ul>
-</div>
+
+  <input type="text" ng-model="query">
+
+  <div ng-init="dogs=['Rusty', 'Momo', 'Wyatt', 'Ollie', 'Ringo', 'Loser']">
+    <ul>
+      <span ng-repeat="dog in dogs | filter:query">
+        <li>{{ dog }}</li>
+      </span>
+    </ul>
+  </div>
 
 
-<div ng-controller="FirstController">
-  <h1>{{message}}</h1>
+  <div ng-controller="FirstController">
+    <h1>{{message}}</h1>
 
-  <ul ng-repeat="animal in animals">
-    <li>{{animal.name}} - {{greet(animal)}}</li>
-  </ul>
-</div>
+    <ul ng-repeat="animal in animals">
+      <li>{{animal.name}} - {{greet(animal)}}</li>
+    </ul>
+  </div>
 
+
+  <div ng-controller="CurrencyController">
+    Euros: <input ng-class="{error: error}" type="text" ng-model="euros">
+
+    <button name="button" ng-disabled="error" ng-click="convert()">Convert!</button>
+
+    Dollars: {{ dollars | currency }}
+  </div>
 
 </body>
 </html>
