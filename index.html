@@ -36,10 +36,18 @@
   <li> foo == foo?: {{ "foo" == "foo" }}</li>
   <li> LOWERCASE ME: {{ someText | lowercase }}</li>
   <li> UPPERCASE ME: {{ someText | uppercase }}</li>
-  <li> Checked?: <input type=checkbox ng-checked="{{ 1 == 1 }}" /></li>
+  <li> Checked?: <input type=checkbox ng-checked=" 1 == 1 " /></li>
 </ul>
 
+<input type="text" ng-model="query">
 
+<div ng-init="dogs=['Rusty', 'Momo', 'Wyatt', 'Ollie', 'Ringo', 'Loser']">
+  <ul>
+    <span ng-repeat="dog in dogs | filter:query">
+      <li>{{ dog }}</li>
+    </span>
+  </ul>
+</div>
 
 
 
