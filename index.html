@@ -26,6 +26,21 @@
   </p>
 </div>
 
+<hr>
+
+<h4>Angular Expressions</h4>
+<ul>
+  <li> 1 + 3 is {{ 1 + 3 }} </li>
+  <li> My current balance: {{ 1112.12 | currency }}</li>
+  <li> foo == bar?: {{ "foo" === "bar" }}</li>
+  <li> foo == foo?: {{ "foo" == "foo" }}</li>
+  <li> LOWERCASE ME: {{ someText | lowercase }}</li>
+  <li> UPPERCASE ME: {{ someText | uppercase }}</li>
+  <li> Checked?: <input type=checkbox ng-checked="{{ 1 == 1 }}" /></li>
+</ul>
+
+
+
 
 
 </body>
